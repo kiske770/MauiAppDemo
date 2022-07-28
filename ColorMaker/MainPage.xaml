@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ColorMaker.MainPage">
+
+    <ContentPage.Resources>
+        <Color x:Key="Primary">Red</Color>
+        <Color x:Key="Secondary">Green</Color>
+        <Color x:Key="Tertiry">Blue</Color>
+    </ContentPage.Resources>
+
+    <Grid x:Name="Container" BackgroundColor="Black">
+        <Frame Margin="0,0,0,0" VerticalOptions="Center">
+            <VerticalStackLayout Spacing="15"  VerticalOptions="Center">
+                <Label FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" Text="Color Maker" />
+                <Label Text="Color Red:"/>
+                <Slider x:Name="sldRed" 
+                        ThumbColor="{ StaticResource Primary}" 
+                        MaximumTrackColor="{StaticResource Secondary}" 
+                        MinimumTrackColor="{StaticResource Tertiary}"
+                        ValueChanged="Slider_ValueChanged"/>
+                <Label Text="Color Green:"/>
+                <Slider x:Name="sldGreen" 
+                        ThumbColor="{ StaticResource Secondary}" 
+                        MaximumTrackColor="{StaticResource Tertiary}"
+                        MinimumTrackColor="{StaticResource Primary}" 
+                        ValueChanged="Slider_ValueChanged"/>
+                <Label Text="Color Blue:"/>
+                <Slider x:Name="sldBlue" 
+                        ThumbColor="{ StaticResource Tertiary}" 
+                        MaximumTrackColor="{StaticResource Primary}" 
+                        MinimumTrackColor="{StaticResource Secondary}" 
+                        ValueChanged="Slider_ValueChanged"/>
+                <Frame CornerRadius="25" HorizontalOptions="Center">
+                    <HorizontalStackLayout>
+                        <Label x:Name="lblHex" HorizontalTextAlignment="Center" Text="#000000" VerticalOptions="Center" />
+                        <ImageButton Margin="10,0,0,0" HeightRequest="25" WidthRequest="25" Source="copy.png" Clicked="ImageButton_Clicked"/>
+                    </HorizontalStackLayout>
+                </Frame>
+                <Button x:Name="btnRandom" BackgroundColor="Black" Text="Generate Random Color" Clicked="btnRandom_Clicked"/>
+            </VerticalStackLayout>  
+        </Frame>
+    </Grid>
+
+</ContentPage>
